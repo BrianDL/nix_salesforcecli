@@ -9,12 +9,16 @@
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
+    sfcli = pkgs.callPackage ./default.nix {};
     
   in {
-    packages.${system}.salesforce-cli = pkgs.callPackage ./default.nix {};
-
+    packages.${system} = {
+      salesforce-cli = sfcli;
+      default = sfcli;
+    };
+    
     devShells.${system}.default = pkgs.mkShell {
-      buildInputs = [ self.packages.${system}.salesforce-cli ];
+      buildInputs = [ sfcli ];
     };
   };
 }
