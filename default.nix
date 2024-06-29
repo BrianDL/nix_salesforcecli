@@ -6,7 +6,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.xz";
-    sha256 = "sha256-YRMBYTlT95bSa4RdeCLhUBE4kmCBvBUAkTxjneUcJYQ="; 
+    sha256 = "sha256-15vW2qENtBdkpfCvb8AWstTKYn6XPfxlcidqNxnqKLw="; 
   };
 
   nativeBuildInputs = [ stdenv.cc ];
